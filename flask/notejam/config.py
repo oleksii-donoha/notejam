@@ -12,9 +12,6 @@ class Config(object):
 class ProductionConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    if os.getenv('DB_SSL_ENABLED') == 'true':
-        SQLALCHEMY_DATABASE_URI += '?sslmode=require&sslrootcert=/usr/local/share/ca-certificates/' + os.getenv('AWS_REGION') + '-bundle.pem'
-        
 
 
 class DevelopmentConfig(Config):
